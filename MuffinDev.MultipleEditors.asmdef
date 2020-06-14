@@ -1,8 +1,6 @@
 {
-    "name": "Unity.MuffinDev.MultipleEditors",
-    "references": [
-        "Unity.MuffinDev.CoreLibrary"
-    ],
+    "name": "MuffinDev.MultipleEditors",
+    "references": [],
     "optionalUnityReferences": [],
     "includePlatforms": [
         "Editor"
