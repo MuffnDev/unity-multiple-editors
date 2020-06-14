@@ -16,6 +16,7 @@ namespace MuffinDev.EditorUtils.MultipleEditors
 
         private const string MENU_ITEM = "Tools/Muffin Dev/Multiple Editors Manager";
         private const string WINDOW_TITLE = "Multiple Editors Manager Window";
+        private const int WINDOW_ORDER = 0;
 
         // UI Layout
 
@@ -34,7 +35,7 @@ namespace MuffinDev.EditorUtils.MultipleEditors
         /// <summary>
         /// Gets and show the Multiple Editors Manager window in the editor.
         /// </summary>
-        [MenuItem(MENU_ITEM, false)]
+        [MenuItem(MENU_ITEM, false, WINDOW_ORDER)]
         public static void ShowWindow()
         {
             MultipleEditorsManagerWindow window = GetWindow<MultipleEditorsManagerWindow>(false, WINDOW_TITLE, true);
