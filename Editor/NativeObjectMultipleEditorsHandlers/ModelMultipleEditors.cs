@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using UnityEditor;
+using System.Reflection;
 
 namespace MuffinDev.EditorUtils.MultipleEditors
 {
@@ -18,6 +19,21 @@ namespace MuffinDev.EditorUtils.MultipleEditors
         {
             NativeEditor = CreateEditor(target, Type.GetType("UnityEditor.ModelImporterEditor, UnityEditor"));
         }
+
+#if UNITY_2019_1_OR_NEWER
+        protected override void DestroyNativeEditor(Editor _NativeEditor)
+        {
+            MethodInfo enableMethod = _NativeEditor.GetType()
+                .GetMethod("OnEnable", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+
+            if (enableMethod != null)
+            {
+                enableMethod.Invoke(_NativeEditor, null);
+            }
+
+            DestroyImmediate(_NativeEditor);
+        }
+#endif
 
         protected override void OnEnable()
         {
