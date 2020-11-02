@@ -10,7 +10,7 @@ namespace MuffinDev.EditorUtils.MultipleEditors
     /// <summary>
     /// Handles multiple editors for MonoScript component.
     /// </summary>
-    [CustomEditor(typeof(ModelImporter))]
+    //[CustomEditor(typeof(ModelImporter))]
     [CanEditMultipleObjects]
     public class ModelMultipleEditors : NativeObjectMultipleEditorsHandler<ModelImporter>
     {
