@@ -9,7 +9,7 @@ namespace MuffinDev.EditorUtils.MultipleEditors
     /// <summary>
     /// Handles multiple editors for GameObjects.
     /// </summary>
-    [CustomEditor(typeof(GameObject))]
+    //[CustomEditor(typeof(GameObject))]
     [CanEditMultipleObjects]
     public class GameObjectMultipleEditors : NativeObjectMultipleEditorsHandler<GameObject>
     {
@@ -23,6 +23,8 @@ namespace MuffinDev.EditorUtils.MultipleEditors
 
         protected override void OnHeaderGUI()
         {
+#if UNITY_2019_1_OR_NEWER
+#else
             if(target.IsAsset())
             {
                 GUILayout.Space(ROOT_PREFAB_NOTE_OFFSET);
@@ -31,6 +33,7 @@ namespace MuffinDev.EditorUtils.MultipleEditors
 
                 GUILayout.Space(ASSET_HEADER_CONTENT_OFFSET);
             }
+#endif
 
             ExtensionsManager.DrawCustomEditorsBeforeHeaderGUI();
             NativeEditor.DrawHeader();
