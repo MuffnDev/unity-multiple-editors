@@ -34,7 +34,7 @@ namespace MuffinDev.EditorUtils.MultipleEditors
 
             // A list of settings that targets the same type
             [SerializeField]
-            public List<CustomEditorExtensionSettings> m_Settings { get; private set; } = new List<CustomEditorExtensionSettings>();
+            private List<CustomEditorExtensionSettings> m_Settings = new List<CustomEditorExtensionSettings>();
 
             // Defines if this list displays the additial settings fields or not
             [SerializeField]
