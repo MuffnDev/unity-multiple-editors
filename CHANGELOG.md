@@ -9,3 +9,9 @@
 - Update to Unity 2019.4+
 - Minor code refactoring
 - Fixed GameObject custom extensions issues
+
+## [1.1.0] - 2020-10-29
+### Added
+- Online documentation shortcut
+### Changed
+- Move /_Documentation in /Documentation~
