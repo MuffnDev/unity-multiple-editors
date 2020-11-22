@@ -3,9 +3,12 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEditor;
+
+using MuffinDev.MultipleEditors.Utilities;
+
 using Object = UnityEngine.Object;
 
-namespace MuffinDev.EditorUtils.MultipleEditors
+namespace MuffinDev.MultipleEditors.Presets
 {
 
     /// <summary>

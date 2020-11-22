@@ -9,7 +9,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEditor;
 
-namespace MuffinDev.EditorUtils.MultipleEditors.Demos
+namespace MuffinDev.MultipleEditors.Demos
 {
 
     /// <summary>
