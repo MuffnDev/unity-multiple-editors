@@ -14,7 +14,7 @@ The Multiple Editors system involve three classes: [`CustomEditorExtension`](./c
 
 ## Demo
 
-You can enable the Multiple Editors system demo by uncommenting the second line of the script at [`/MuffinDev/Core/Editor/MultipleEditors/Demos/DemoCustomObjectEditor.cs`](../../MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs).
+Locate the script named `DemoCustomObjectEditor.cs`(../../MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs) in your project, and uncomment the second line of that script to enable the package demo.
 
 This will add custom editor extensions to `GameObject` native inspector, `Transform` and `Rigidbody` components.
 
