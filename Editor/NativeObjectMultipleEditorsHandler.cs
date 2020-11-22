@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reflection;
-
 using UnityEngine;
 using UnityEditor;
 
@@ -93,13 +92,10 @@ namespace MuffinDev.EditorUtils.MultipleEditors
         /// <param name="_NativeEditor">The created native Editor instance.</param>
         protected virtual void DestroyNativeEditor(Editor _NativeEditor)
         {
-            MethodInfo disableMethod = NativeEditor.GetType()
-                .GetMethod("OnDisable", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            MethodInfo onDisableMethod = ReflectionUtility.GetMethod("OnDisable", NativeEditor);
+            if (onDisableMethod != null)
+                onDisableMethod.Invoke(NativeEditor, null);
 
-            if (disableMethod != null)
-            {
-                disableMethod.Invoke(NativeEditor, null);
-            }
             DestroyImmediate(NativeEditor);
         }
 
