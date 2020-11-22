@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEditor;
 
 namespace MuffinDev.EditorUtils.MultipleEditors
@@ -158,6 +159,13 @@ namespace MuffinDev.EditorUtils.MultipleEditors
         /// Called after the default extended Editor's inspector is displayed.
         /// </summary>
         public virtual void OnInspectorGUI() { }
+
+        /// <summary>
+        /// Implement this method to make a custom UIElements inspector.
+        /// </summary>
+        /// <returns>Returns the VisualElement to draw, or null if this custom editor doesn't provide a custom inspector using
+        /// UIElements.</returns>
+        public virtual VisualElement CreateInspectorGUI() { return null; }
 
         /// <summary>
         /// Handles Scene view events.
