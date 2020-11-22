@@ -1,7 +1,4 @@
-﻿using System;
-
-using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
 
 namespace MuffinDev.EditorUtils.MultipleEditors
 {
@@ -30,11 +27,16 @@ namespace MuffinDev.EditorUtils.MultipleEditors
             ExtensionsManager.DrawCustomEditorsBeforeInspectorGUI();
             if (NativeEditor != null)
                 NativeEditor.OnInspectorGUI();
+
+#if UNITY_2019_1_OR_NEWER
+            ExtensionsManager.DrawCustomEditorsInspectorGUI();
+#else
             EditorGUILayout.EndHorizontal();
             ExtensionsManager.DrawCustomEditorsInspectorGUI();
-            EditorGUILayout.EndVertical();
+            //EditorGUILayout.EndVertical();
             EditorGUILayout.EndScrollView();
             EditorGUIUtility.ExitGUI();
+#endif
         }
 
     }
