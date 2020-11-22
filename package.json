@@ -1,0 +1,17 @@
+{
+	"name": "com.muffindev.multipleeditors",
+	"version": "1.0.0",
+	"displayName": "Muffin Dev - Multiple Editors",
+	"description": "Create as many editor extensions a you want for the same components, even for native ones, and manage them in the Multiple Editors window!",
+	"unity": "2018.4",
+	"keywords": [
+		"editor",
+		"extension",
+		"devtools"
+    ],
+	"author": {
+		"name": "Hubert Grossin",
+		"email": "hubert.grossin@gmail.com",
+		"url": "https://www.linkedin.com/in/hubert-grossin/"
+	}
+}

@@ -1,4 +1,4 @@
-﻿namespace MuffinDev
+﻿namespace MuffinDev.MultipleEditors
 {
 
 	///<summary>
