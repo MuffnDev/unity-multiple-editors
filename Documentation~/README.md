@@ -18,7 +18,7 @@ You can enable the Multiple Editors system demo by uncommenting the second line 
 
 This will add custom editor extensions to `GameObject` native inspector, `Transform` and `Rigidbody` components.
 
-You can also change their order and settings from the Multiple Editors Manager window in `Muffin Dev > Multiple Editors Manager`.
+You can also change their order and settings from the Multiple Editors Manager window in `Tools > Muffin Dev > Multiple Editors Manager`.
 
 ## Usage
 
@@ -105,7 +105,7 @@ Note that native objects (like `GameObject` or `Transform`) can have a special b
 
 ## Demos and presets
 
-You can find a demo script that contains example editor extensions at [`/MuffinDev/Modules/MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs`](../../MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs). Uncomment the second line of that script to enable demo extensions.
+Find the demo script named [`DemoCustomObjectEditor.cs`](../../MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs) in your prokect, and uncomment the second line of that script to enable demo extensions. You'll then see custom editors for selected `GameObject`s, `Transform` and `Rigidbody` components!
 
 This module also contains several multiple editors handlers for built-in types:
 
