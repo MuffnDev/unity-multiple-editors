@@ -2,7 +2,7 @@
 
 Allows you to create multiple editor extensions for the same target type through code. In the editor, you can use the manager's window to set these custom editor options : enable/disable them, change their order, etc.
 
-![Preview of the Multiple Editors Manager window](./_Documentation/Images/multiple-editors-manager-window.png)
+![Preview of the Multiple Editors Manager window](./Documentation~/Images/multiple-editors-manager-window.png)
 
 ## Demo
 
@@ -14,7 +14,7 @@ You can also change their order and settings from the Multiple Editors Manager w
 
 ## Documentation
 
-[=> See module documentation](./_Documentation/README.md)
+[=> See module documentation](./Documentation~/README.md)
 
 ## Known issues
 
