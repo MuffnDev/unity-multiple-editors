@@ -6,9 +6,7 @@ Allows you to create multiple editor extensions for the same target type through
 
 ## Demo
 
-Unless you downloaded the package directly instead of using the *Package Manager*, you won't be able to change the content of the directory. So, in order to enable the demo, drag the file at `/Packages/Multiple Editors/Editor/Demos/DemoCustomObjectEditor.cs` into your `/Assets` directory.
-
-You can enable the Multiple Editors demo by uncommenting the second line of the `DemoCustomObjectEditor.cs` script.
+Locate the script named `MultipleEditorsDemo.cs` in your project, and uncomment the second line of that script.
 
 This will add custom editor extensions to `GameObject` native inspector, `Transform` and `Rigidbody` components.
 

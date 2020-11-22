@@ -14,7 +14,7 @@ The Multiple Editors system involve three classes: [`CustomEditorExtension`](./c
 
 ## Demo
 
-Locate the script named `DemoCustomObjectEditor.cs`(../../MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs) in your project, and uncomment the second line of that script to enable the package demo.
+Locate the script named `MultipleEditors.cs`(../../MultipleEditors/Editor/Demos/MultipleEditors.cs) in your project, and uncomment the second line of that script to enable the package demo.
 
 This will add custom editor extensions to `GameObject` native inspector, `Transform` and `Rigidbody` components.
 
@@ -105,7 +105,7 @@ Note that native objects (like `GameObject` or `Transform`) can have a special b
 
 ## Demos and presets
 
-Find the demo script named [`DemoCustomObjectEditor.cs`](../../MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs) in your prokect, and uncomment the second line of that script to enable demo extensions. You'll then see custom editors for selected `GameObject`s, `Transform` and `Rigidbody` components!
+Find the demo script named [`MultipleEditors.cs`](../../MultipleEditors/Editor/Demos/MultipleEditors.cs) in your prokect, and uncomment the second line of that script to enable demo extensions. You'll then see custom editors for selected `GameObject`s, `Transform` and `Rigidbody` components!
 
 This module also contains several multiple editors handlers for built-in types:
 

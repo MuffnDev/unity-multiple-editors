@@ -1,5 +1,5 @@
 ﻿// Uncomment the following line to enable demo custom editors, working with the multiple editors system.
-// #define MULTIPLE_EDITORS_DEMO
+#define MULTIPLE_EDITORS_DEMO
 
 #if MULTIPLE_EDITORS_DEMO
 
