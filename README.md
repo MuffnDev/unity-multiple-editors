@@ -27,3 +27,9 @@ The first time you add this plugin and you want to open the *Multiple Editors* w
 This bug is internal to Unity. You can fix it by just restarting the Editor.
 
 The custom editors for `ModelImporter` and `TexutreImporter` are for the moment disabled because of an unfixed issue. But we're working on it, please be patient! ;)
+
+## Support the project!
+
+Did you find this content useful? The project is open source, but if you want to support my work, please consider buying me a coffee!
+
+[![Buy Me A Coffee!](https://drive.google.com/uc?id=1YtIhCd6oDnTfzlwInnWXOhJ3oBTQk_Cr)](https://www.buymeacoffee.com/muffindev)

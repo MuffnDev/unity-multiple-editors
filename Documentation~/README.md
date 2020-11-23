@@ -124,3 +124,9 @@ This module also contains several multiple editors handlers for built-in types:
 - `Transform`
 
 Having all these handlers already setup allows you to just create the extensions without having to create the appropriate handlers.
+
+## Support the project!
+
+Did you find this content useful? The project is open source, but if you want to support my work, please consider buying me a coffee!
+
+[![Buy Me A Coffee!](https://drive.google.com/uc?id=1YtIhCd6oDnTfzlwInnWXOhJ3oBTQk_Cr)](https://www.buymeacoffee.com/muffindev)
