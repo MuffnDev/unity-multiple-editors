@@ -17,13 +17,15 @@ Creates a CustomEditorExtensionOptions instance.
 
 ## Properties
 
+### `static readonly Default`
+
 ```cs
 public static readonly CustomEditorExtensionOptions Default = new CustomEditorExtensionOptions();
 ```
 
 Returns a new `CustomEditorExtensionOptions` instance with default values.
 
----
+### `displayName`
 
 ```cs
 public string displayName;
@@ -31,7 +33,7 @@ public string displayName;
 
 The name that will be displayed in the Multiple Editors Manager window, in the editor. If null or empty, the window uses the class name of the `CustomEditorExtension` instead.
 
----
+### `description`
 
 ```cs
 public string description;
@@ -39,7 +41,7 @@ public string description;
 
 A short description about what the custom editor does.
 
----
+### `defaultOrder`
 
 ```cs
 public string defaultOrder;
@@ -47,7 +49,7 @@ public string defaultOrder;
 
 The defaut position of the `CustomEditorExtension` in the open Editor where it's used. The higher the value, the higher the custom editor will appear in the inspector.
 
----
+### `requiresConstantRepaint`
 
 ```cs
 public string requiresConstantRepaint;
