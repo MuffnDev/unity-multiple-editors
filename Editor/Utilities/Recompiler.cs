@@ -14,7 +14,6 @@ namespace MuffinDev.MultipleEditors.Utilities
         /// <summary>
         /// Recompiles code.
         /// </summary>
-        [MenuItem("Assets/Recompile", false, 40)]
         public static void Recompile()
         {
             string scriptPath = ScriptableObjectExtension.GetScriptPath<Recompiler>();
