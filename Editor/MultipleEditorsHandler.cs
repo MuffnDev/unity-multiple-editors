@@ -75,7 +75,7 @@ namespace MuffinDev.EditorUtils.MultipleEditors
         /// use UIElements instead of only IMGUI controls. Note that these methods are not exclusive, so you can use both. In this case,
         /// CreateInspectorGUI() is called before OnInspectorGUI().
         /// </summary>
-        /// <returns>Returns the root VisualElement that represents the Panel to draw for the inspected object.</returns>
+        /// <returns>Returns the root VisualElement to draw for the inspected object.</returns>
         public override VisualElement CreateInspectorGUI()
         {
             VisualElement root = new VisualElement();

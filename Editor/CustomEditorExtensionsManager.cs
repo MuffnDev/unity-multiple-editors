@@ -96,7 +96,7 @@ namespace MuffinDev.EditorUtils.MultipleEditors
 
         /// <summary>
         /// Calls CreateInspectorGUI() on each loaded custom editor extensions.
-        /// Note that each VisualElement returned by that method is added to the root panel.
+        /// Note that each VisualElement returned by the custom editor implementations are added to the root panel.
         /// </summary>
         /// <param name="_Root">The root VisualElement, which is the main panel that will be drawn in the inspector.</param>
         public void DrawCustomEditorsInspectorUIElements(VisualElement _Root)

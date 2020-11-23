@@ -161,10 +161,11 @@ namespace MuffinDev.EditorUtils.MultipleEditors
         public virtual void OnInspectorGUI() { }
 
         /// <summary>
-        /// Implement this method to make a custom UIElements inspector.
+        /// Called when the inspector of the object being inspected is drawn. This is an alternative to OnInspectorGUI() that allow you to
+        /// use UIElements instead of only IMGUI controls. Note that these methods are not exclusive, so you can use both. In this case,
+        /// CreateInspectorGUI() is called before OnInspectorGUI().
         /// </summary>
-        /// <returns>Returns the VisualElement to draw, or null if this custom editor doesn't provide a custom inspector using
-        /// UIElements.</returns>
+        /// <returns>Returns the root VisualElement to draw for the inspected object.</returns>
         public virtual VisualElement CreateInspectorGUI() { return null; }
 
         /// <summary>
