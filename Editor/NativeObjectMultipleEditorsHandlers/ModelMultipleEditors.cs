@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Reflection;
 
-namespace MuffinDev.MultipleEditors.Presets
+namespace MuffinDev.MultipleEditors
 {
 
     /// <summary>

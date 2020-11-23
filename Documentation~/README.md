@@ -14,9 +14,11 @@ The Multiple Editors system involve three classes: [`CustomEditorExtension`](./c
 
 ## Demo
 
-Locate the script named `DemoCustomObjectEditor.cs`(../../MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs) in your project, and uncomment the second line of that script to enable the package demo.
+Locate the script named `MultipleEditors.cs`(../../MultipleEditors/Editor/Demos/MultipleEditors.cs) in your project, and uncomment the second line of that script to enable the package demo.
 
 This will add custom editor extensions to `GameObject` native inspector, `Transform` and `Rigidbody` components.
+
+![Enabled *Multiple Editors* demo preview](./Images/multiple-editors-demo.png)
 
 You can also change their order and settings from the Multiple Editors Manager window in `Tools > Muffin Dev > Multiple Editors Manager`.
 
@@ -27,7 +29,7 @@ In the following example, you'll see how to create a custom editor extension for
 ```cs
 using UnityEngine;
 using UnityEditor;
-using MuffinDev.EditorUtils.MultipleEditors;
+using MuffinDev.MultipleEditors;
 
 // Use InitializeOnLoad attribute to ask for Unity to load this class after recompiling
 [InitializeOnLoad]
@@ -70,7 +72,7 @@ Then, create the multiple editors handler for that specific type.
 ```cs
 using UnityEngine;
 using UnityEditor;
-using MuffinDev.EditorUtils.MultipleEditors;
+using MuffinDev.MultipleEditors;
 
 [CustomEditor(typeof(MyBehaviour))]
 [CanEditMultipleObjects]
@@ -105,7 +107,7 @@ Note that native objects (like `GameObject` or `Transform`) can have a special b
 
 ## Demos and presets
 
-Find the demo script named [`DemoCustomObjectEditor.cs`](../../MultipleEditors/Editor/Demos/DemoCustomObjectEditor.cs) in your prokect, and uncomment the second line of that script to enable demo extensions. You'll then see custom editors for selected `GameObject`s, `Transform` and `Rigidbody` components!
+Find the demo script named [`MultipleEditors.cs`](../../MultipleEditors/Editor/Demos/MultipleEditors.cs) in your prokect, and uncomment the second line of that script to enable demo extensions. You'll then see custom editors for selected `GameObject`s, `Transform` and `Rigidbody` components!
 
 This module also contains several multiple editors handlers for built-in types:
 

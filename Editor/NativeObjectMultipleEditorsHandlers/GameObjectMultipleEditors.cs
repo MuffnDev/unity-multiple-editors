@@ -8,7 +8,7 @@ using MuffinDev.MultipleEditors.Utilities;
 
 using Object = UnityEngine.Object;
 
-namespace MuffinDev.MultipleEditors.Presets
+namespace MuffinDev.MultipleEditors
 {
 
     /// <summary>

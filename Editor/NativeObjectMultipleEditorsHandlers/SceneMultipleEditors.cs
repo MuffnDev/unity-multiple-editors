@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace MuffinDev.MultipleEditors.Presets
+namespace MuffinDev.MultipleEditors
 {
 
     /// <summary>
