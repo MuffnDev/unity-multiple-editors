@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-using MuffinDev.EditorUtils;
+using MuffinDev.MultipleEditors.Utilities;
 
 using Object = UnityEngine.Object;
 

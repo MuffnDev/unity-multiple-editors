@@ -1,6 +1,6 @@
 {
 	"name": "com.muffindev.multipleeditors",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"displayName": "Multiple Editors",
 	"description": "Create as many editor extensions a you want for the same components, even for native ones, and manage them in the Multiple Editors window!",
 	"unity": "2018.4",
