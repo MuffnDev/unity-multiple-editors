@@ -1,5 +1,7 @@
 ﻿using UnityEditor;
 
+using UnityEngine.UIElements;
+
 namespace MuffinDev.MultipleEditors
 {
 
@@ -26,6 +28,8 @@ namespace MuffinDev.MultipleEditors
         void OnBeforeInspectorGUI();
 
         void OnInspectorGUI();
+
+        VisualElement CreateInspectorGUI();
 
         void OnSceneGUI();
 

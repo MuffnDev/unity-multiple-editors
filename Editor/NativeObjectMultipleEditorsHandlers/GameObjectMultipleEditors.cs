@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-using MuffinDev.MultipleEditors.Utilities;
+using MuffinDev.EditorUtils;
 
 using Object = UnityEngine.Object;
 
-namespace MuffinDev.MultipleEditors.Presets
+namespace MuffinDev.MultipleEditors
 {
 
     /// <summary>

@@ -6,7 +6,9 @@ See [Multiple Editors Manager window documentation] for more informations about 
 
 ![Preview of the Multiple Editors Manager window](./Images/multiple-editors-manager-window.png)
 
-## Methods
+## Accessors
+
+### `OnRequiresRepaint`
 
 ```cs
 public VoidEvent OnRequiresRepaint { get; }
@@ -14,7 +16,7 @@ public VoidEvent OnRequiresRepaint { get; }
 
 Called when the help block animation is playing.
 
----
+### `UseLeftOffset`
 
 ```cs
 public bool UseLeftOffset { get; set; }
