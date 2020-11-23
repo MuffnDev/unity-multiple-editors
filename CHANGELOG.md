@@ -23,3 +23,7 @@
 - Rename Multiple Editors namespace to `MuffinDev.MultipleEditors`
 - Update demo
 - Update documentation
+
+## [1.2.1] - 2020-11-23
+### Changed
+- Add the [*Buy Me A Coffee*](https://www.buymeacoffee.com/muffindev) link in docs
