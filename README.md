@@ -10,6 +10,8 @@ Locate the script named `MultipleEditorsDemo.cs` in your project, and uncomment 
 
 This will add custom editor extensions to `GameObject` native inspector, `Transform` and `Rigidbody` components.
 
+![`CustomMultipleExtension` usage result](./Documentation~/Images/multiple-editors-demo.png)
+
 You can also change their order and settings from the Multiple Editors Manager window in `Tools > Muffin Dev > Multiple Editors Manager`.
 
 ## Documentation

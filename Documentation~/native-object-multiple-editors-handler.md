@@ -18,13 +18,15 @@ See the existing implementations for [`GameObject`](../../MultipleEditors/Editor
 
 ## Methods
 
+### `OnEnable()`
+
 ```cs
 protected virtual void OnEnable()
 ```
 
 This function is called when the object is loaded. Creates an instance of the built-in editor, then loads the custom editors extensions, and enable them.
 
----
+### `OnDisable()`
 
 ```cs
 protected virtual void OnDisable()
@@ -32,7 +34,7 @@ protected virtual void OnDisable()
 
 This function is called when the scriptable object goes out of scope. Disables the loaded custom editor extensions and destroy the cached built-in editor.
 
----
+### `OnHeaderGUI()`
 
 ```cs
 protected override void OnHeaderGUI()
@@ -40,7 +42,7 @@ protected override void OnHeaderGUI()
 
 Called when the header of the object being inspected is drawn. By default, calls `OnBeforeHeaderGUI()` on loaded custom editor extensions, draws the cached editor original header, then call `OnHeaderGUI()` on loaded custom editor extensions.
 
----
+### `OnInspectorGUI()`
 
 ```cs
 public override void OnInspectorGUI()
@@ -48,7 +50,19 @@ public override void OnInspectorGUI()
 
 Called when the inspector of the object being inspected is drawn. By default, calls `OnBeforeInspectorGUI()` on loaded custom editor extensions, draws the cached editor original header, then call `OnInspectorGUI()` on loaded custom editor extensions.
 
----
+### `CreateInspectorGUI()`
+
+```cs
+public override VisualElement CreateInspectorGUI()
+```
+
+Called when the inspector of the object being inspected is drawn.
+
+This is an alternative to `OnInspectorGUI()` that allow you to use ***UIElements*** instead of only *IMGUI* controls. Note that these methods are not exclusive, so you can use both. In this case, `CreateInspectorGUI()` is called before `OnInspectorGUI()`.
+
+Returns the root `VisualElement` to draw for the inspected object.
+
+### `OnSceneGUI()`
 
 ```cs
 protected void OnSceneGUI()
@@ -56,7 +70,7 @@ protected void OnSceneGUI()
 
 Handles scene events. Note that this message is sent by Unity only when inspecting scene objects.
 
----
+### `RequiresConstantRepaint()`
 
 ```cs
 public override bool RequiresConstantRepaint()
@@ -64,15 +78,7 @@ public override bool RequiresConstantRepaint()
 
 Defines if this Editor should be repainted constantly, (similar to an Update() for an Editor class).
 
----
-
-```cs
-protected void LoadExtensions()
-```
-
-Creates all the `CustomEditorExtension` that have the same target type as this `Editor`.
-
----
+### `CreateNativeEditor()`
 
 ```cs
 protected virtual void CreateNativeEditor(string _CreateEditorType = null)
@@ -82,7 +88,7 @@ Called when this editor is enabled. Creates an instance of the native editor of 
 
 - `string _CreateEditorType = null`: The type name of the native editor to get. If this value is set to null, use `"UnityEditor.[TTarget]Inspector, UnityEditor"`.
 
----
+### `DestroyNativeEditor()`
 
 ```cs
 protected virtual void DestroyNativeEditor(Editor _NativeEditor)
@@ -94,63 +100,9 @@ By default, executes the `OnDisable()` method on the native editor, and destroys
 
 - `Editor _NativeEditor`: The created built-in `Editor` instance.
 
----
+## Accessors
 
-```cs
-protected void EnableCustomEditors()
-```
-
-Calls `OnEnable()` on each loaded custom editor extensions.
-
----
-
-```cs
-protected void DisableCustomEditors()
-```
-
-Calls `OnDisable()` on each loaded custom editor extensions.
-
----
-
-```cs
-protected void DrawCustomEditorsBeforeHeaderGUI()
-```
-
-Calls `OnBeforeHeaderGUI()` on each loaded custom editor extensions.
-
----
-
-```cs
-protected void DrawCustomEditorsHeaderGUI()
-```
-
-Calls `OnHeaderGUI()` on each loaded custom editor extensions.
-
----
-
-```cs
-protected void DrawCustomEditorsBeforeInspectorGUI()
-```
-
-Calls `OnBeforeInspectorGUI()` on each loaded custom editor extensions.
-
----
-
-```cs
-protected void DrawCustomEditorsInspectorGUI()
-```
-
-Calls `OnInspectorGUI()` on each loaded custom editor extensions.
-
----
-
-```cs
-protected void DrawCustomEditorsSceneGUI()
-```
-
-Calls `OnSceneGUI()` on each loaded custom editor extensions.
-
----
+### `NativeEditor`
 
 ```cs
 protected Editor NativeEditor { get; set; }

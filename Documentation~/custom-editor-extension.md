@@ -43,6 +43,8 @@ Of course, this works also with your own Objects. Note that the `CustomEditorExt
 
 ## Methods
 
+### `RegisterCustomEditor()`
+
 ```cs
 protected static void RegisterCustomEditor(MultipleEditorsManager.CreateEditorDelegate _CreateEditorMethod);
 protected static void RegisterCustomEditor(MultipleEditorsManager.CreateEditorDelegate _CreateEditorMethod, CustomEditorExtensionOptions _Options);
@@ -62,7 +64,7 @@ Registers this custom editor with the manager to make it available for multiple 
 - `string _Description`: A short description about what your editor does, displayed in the Multiple Editors Manager window
 - `bool _RequiresConstantRepaint = false`: If true, the extended `Editor` will set `Editor.RequiresConstantRepaint()` to true
 
----
+### `OnEnable()`
 
 ```cs
 public virtual void OnEnable()
@@ -70,11 +72,15 @@ public virtual void OnEnable()
 
 Called when the extended `Editor` instance is enabled.
 
+### `OnDisable()`
+
 ```cs
 public virtual void OnDisable()
 ```
 
 Called when the extended `Editor` instance is disabled.
+
+### `OnBeforeHeaderGUI()`
 
 ```cs
 public virtual void OnBeforeHeaderGUI()
@@ -82,11 +88,15 @@ public virtual void OnBeforeHeaderGUI()
 
 Called before the default extended `Editor`'s header is displayed.
 
+### `OnHeaderGUI()`
+
 ```cs
 public virtual void OnHeaderGUI()
 ```
 
 Called after the default extended `Editor`'s header is displayed.
+
+### `OnBeforeInspectorGUI()`
 
 ```cs
 public virtual void OnBeforeInspectorGUI()
@@ -94,11 +104,27 @@ public virtual void OnBeforeInspectorGUI()
 
 Called before the default extended `Editor`'s inspector is displayed.
 
+### `OnInspectorGUI()`
+
 ```cs
 public virtual void OnInspectorGUI()
 ```
 
 Called after the default extended `Editor`'s inspector is displayed.
+
+### `CreateInspectorGUI()`
+
+```cs
+public virtual VisualElement CreateInspectorGUI()
+```
+
+Called when the inspector of the object being inspected is drawn.
+
+This is an alternative to `OnInspectorGUI()` that allow you to use ***UIElements*** instead of only *IMGUI* controls. Note that these methods are not exclusive, so you can use both. In this case, `CreateInspectorGUI()` is called before `OnInspectorGUI()`.
+
+Returns the root `VisualElement` to draw for the inspected object.
+
+### `OnSceneGUI()`
 
 ```cs
 public virtual void OnSceneGUI()
@@ -106,7 +132,7 @@ public virtual void OnSceneGUI()
 
 Handles Scene view events. Note that this method is called only if the target type is a scene object (instances of `MonoBehaviour` for example).
 
----
+### `Repaint()`
 
 ```cs
 protected void Repaint()
@@ -114,7 +140,9 @@ protected void Repaint()
 
 Alias of the extended `Editor`'s `Repaint()` method. Repaint the inspector that shows this editor.
 
----
+## Accessors
+
+### `Target` or `target`
 
 ```cs
 public TTarget Target { get; }
@@ -123,7 +151,7 @@ public TTarget target { get; }
 
 Gets the object being inspected.
 
----
+### `Targets` or `targets`
 
 ```cs
 public TTarget[] Targets { get; }
@@ -132,7 +160,7 @@ public TTarget[] targets { get; }
 
 Gets an array of all the objects being inspected.
 
----
+### `SerializedObject` or `serializedObject`
 
 ```cs
 public SerializedObject SerializedObject { get; }

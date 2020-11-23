@@ -1,0 +1,11 @@
+﻿<UXML xmlns="UnityEngine.UIElements">
+  <VisualElement class="main">
+    <Image name="preview" class="preview"/>
+    <VisualElement class="data">
+      <Label text="GameObject name" name="title" class="title" />
+      <Label text="Is Dynamic?" name="isDynamic" />
+      <Label text="State" name="state" />
+      <Label text="Nb components" name="componentsCount" />
+    </VisualElement>
+  </VisualElement>
+</UXML>

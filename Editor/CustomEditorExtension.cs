@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEditor;
 
 namespace MuffinDev.EditorUtils.MultipleEditors
@@ -158,6 +159,14 @@ namespace MuffinDev.EditorUtils.MultipleEditors
         /// Called after the default extended Editor's inspector is displayed.
         /// </summary>
         public virtual void OnInspectorGUI() { }
+
+        /// <summary>
+        /// Called when the inspector of the object being inspected is drawn. This is an alternative to OnInspectorGUI() that allow you to
+        /// use UIElements instead of only IMGUI controls. Note that these methods are not exclusive, so you can use both. In this case,
+        /// CreateInspectorGUI() is called before OnInspectorGUI().
+        /// </summary>
+        /// <returns>Returns the root VisualElement to draw for the inspected object.</returns>
+        public virtual VisualElement CreateInspectorGUI() { return null; }
 
         /// <summary>
         /// Handles Scene view events.
