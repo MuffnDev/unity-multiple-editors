@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 
 using Object = UnityEngine.Object;
 
-namespace MuffinDev.EditorUtils.MultipleEditors.Demos
+namespace MuffinDev.MultipleEditors.Demos
 {
 
     /// <summary>

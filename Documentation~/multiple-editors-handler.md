@@ -17,7 +17,7 @@ Then, create the multiple editors handler for that specific type.
 ```cs
 using UnityEngine;
 using UnityEditor;
-using MuffinDev.EditorUtils.MultipleEditors;
+using MuffinDev.MultipleEditors;
 
 [CustomEditor(typeof(MyBehaviour))]
 [CanEditMultipleObjects]

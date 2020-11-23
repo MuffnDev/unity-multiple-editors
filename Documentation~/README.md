@@ -29,7 +29,7 @@ In the following example, you'll see how to create a custom editor extension for
 ```cs
 using UnityEngine;
 using UnityEditor;
-using MuffinDev.EditorUtils.MultipleEditors;
+using MuffinDev.MultipleEditors;
 
 // Use InitializeOnLoad attribute to ask for Unity to load this class after recompiling
 [InitializeOnLoad]
@@ -72,7 +72,7 @@ Then, create the multiple editors handler for that specific type.
 ```cs
 using UnityEngine;
 using UnityEditor;
-using MuffinDev.EditorUtils.MultipleEditors;
+using MuffinDev.MultipleEditors;
 
 [CustomEditor(typeof(MyBehaviour))]
 [CanEditMultipleObjects]

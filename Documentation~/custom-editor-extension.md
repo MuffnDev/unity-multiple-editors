@@ -13,7 +13,7 @@ In the following example, you'll see how to create a custom editor extension for
 ```cs
 using UnityEngine;
 using UnityEditor;
-using MuffinDev.EditorUtils.MultipleEditors;
+using MuffinDev.MultipleEditors;
 
 // Use InitializeOnLoad attribute to ask for Unity to load this class after recompiling
 [InitializeOnLoad]

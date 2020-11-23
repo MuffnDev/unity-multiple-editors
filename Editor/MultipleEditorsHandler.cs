@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace MuffinDev.EditorUtils.MultipleEditors
+using MuffinDev.EditorUtils;
+
+namespace MuffinDev.MultipleEditors
 {
 
     /// <summary>

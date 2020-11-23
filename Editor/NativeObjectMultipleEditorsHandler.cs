@@ -3,9 +3,11 @@ using System.Reflection;
 using UnityEngine;
 using UnityEditor;
 
+using MuffinDev.EditorUtils;
+
 using Object = UnityEngine.Object;
 
-namespace MuffinDev.EditorUtils.MultipleEditors
+namespace MuffinDev.MultipleEditors
 {
 
     /// <summary>
