@@ -1,5 +1,5 @@
 ﻿// Uncomment the following line to enable demo custom editors, working with the multiple editors system.
-// #define MULTIPLE_EDITORS_DEMO
+//#define MULTIPLE_EDITORS_DEMO
 
 #if MULTIPLE_EDITORS_DEMO
 
@@ -8,8 +8,11 @@ using System.Globalization;
 
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UIElements;
 
-namespace MuffinDev.EditorUtils.MultipleEditors.Demos
+using Object = UnityEngine.Object;
+
+namespace MuffinDev.MultipleEditors.Demos
 {
 
     /// <summary>
@@ -135,6 +138,69 @@ namespace MuffinDev.EditorUtils.MultipleEditors.Demos
         {
             EditorGUILayout.HelpBox("[3] Should be placed after the others", MessageType.None);
             EditorGUILayout.Space();
+        }
+
+    }
+
+    /// <summary>
+    /// This extension displays a quick description of the object using Unity's UIElements library.
+    /// </summary>
+    [InitializeOnLoad]
+    public class GameObjectQuickView : CustomEditorExtension<GameObject>
+    {
+
+        private const string VISUAL_ASSETS_NAME = "MultipleEditorsDemo_QuickView";
+
+        // You must use static constructors to register your custom editors.
+        static GameObjectQuickView()
+        {
+            RegisterCustomEditor(() => { return new GameObjectQuickView(); }, "Quick View", "Adds common data about the selected object in the GameObject header.");
+        }
+
+        // Called when the inspector of the target is created.
+        public override VisualElement CreateInspectorGUI()
+        {
+            // Create new tree
+            VisualElement root = new VisualElement();
+
+            // Load the visual tree (the elements to draw in the inspector) from a *.uxml file
+            VisualTreeAsset visualTree = FindAssetByName<VisualTreeAsset>(VISUAL_ASSETS_NAME);
+            if (visualTree != null)
+                visualTree.CloneTree(root);
+
+            // Load the stylesheet from a *.uss file
+            StyleSheet style = FindAssetByName<StyleSheet>(VISUAL_ASSETS_NAME);
+            if (style != null)
+                root.styleSheets.Add(style);
+
+            // Replace template content
+            root.Q<Image>("preview").image = AssetPreview.GetAssetPreview(target);
+            root.Q<Label>("title").text = target.name;
+            root.Q<Label>("isDynamic").text = $"Dynamic: {(IsDynamic ? "Yes" : "No")}";
+            root.Q<Label>("state").text = $"State: {(EditorUtility.IsPersistent(target) ? "saved on disk" : "scene object")}";
+            root.Q<Label>("componentsCount").text = $"Nb. components: {target.GetComponents<Component>().Length}";
+
+            return root;
+        }
+
+        // Checks if this GameObject is dynamic (and so has a Rigidbody or Rigidbody2D component).
+        private bool IsDynamic
+        {
+            get { return target.GetComponent<Rigidbody>() ? true : target.GetComponent<Rigidbody2D>(); }
+        }
+
+        // Finds an asset of the given type by its name in the Asset Database.
+        private TAssetType FindAssetByName<TAssetType>(string _AssetName)
+            where TAssetType : Object
+        {
+            string[] guids = AssetDatabase.FindAssets($"t:{typeof(TAssetType).Name}");
+            foreach (string guid in guids)
+            {
+                TAssetType asset = AssetDatabase.LoadAssetAtPath<TAssetType>(AssetDatabase.GUIDToAssetPath(guid));
+                if (asset.name == _AssetName)
+                    return asset;
+            }
+            return null;
         }
 
     }

@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEditor.Animations;
 
-namespace MuffinDev.EditorUtils.MultipleEditors
+namespace MuffinDev.MultipleEditors
 {
 
     /// <summary>

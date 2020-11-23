@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using UnityEngine.UIElements;
 
-namespace MuffinDev.EditorUtils.MultipleEditors
+namespace MuffinDev.MultipleEditors
 {
 
     ///<summary>
@@ -90,6 +91,21 @@ namespace MuffinDev.EditorUtils.MultipleEditors
             foreach (ICustomEditorExtension customObjectEditor in LoadedExtensions)
             {
                 customObjectEditor.OnInspectorGUI();
+            }
+        }
+
+        /// <summary>
+        /// Calls CreateInspectorGUI() on each loaded custom editor extensions.
+        /// Note that each VisualElement returned by the custom editor implementations are added to the root panel.
+        /// </summary>
+        /// <param name="_Root">The root VisualElement, which is the main panel that will be drawn in the inspector.</param>
+        public void DrawCustomEditorsInspectorUIElements(VisualElement _Root)
+        {
+            foreach (ICustomEditorExtension customObjectEditor in LoadedExtensions)
+            {
+                VisualElement ui = customObjectEditor.CreateInspectorGUI();
+                if (ui != null && ui.childCount > 0)
+                    _Root.Add(ui);
             }
         }
 
