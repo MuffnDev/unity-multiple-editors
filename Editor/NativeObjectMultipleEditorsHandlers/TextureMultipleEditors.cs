@@ -6,7 +6,7 @@ namespace MuffinDev.MultipleEditors
     /// <summary>
     /// Handles multiple editors for TextAsset component.
     /// </summary>
-    [CustomEditor(typeof(TextureImporter))]
+    //[CustomEditor(typeof(TextureImporter))]
     [CanEditMultipleObjects]
     public class TextureMultipleEditors : NativeObjectMultipleEditorsHandler<TextureImporter>
     {

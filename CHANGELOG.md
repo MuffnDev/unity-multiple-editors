@@ -27,3 +27,8 @@
 ## [1.2.1] - 2020-11-23
 ### Changed
 - Add the [*Buy Me A Coffee*](https://www.buymeacoffee.com/muffindev) link in docs
+
+## [1.3.0] - 2020-12-23
+### Changed
+- Core library namespaces refactoring
+- Minor improvements
