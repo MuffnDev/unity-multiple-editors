@@ -5,7 +5,7 @@ using System;
 using System.Reflection;
 using System.IO;
 
-namespace MuffinDev.MultipleEditors.Utilities
+namespace MuffinDev.MultipleEditors.Utilities.EditorOnly
 {
 
 	// Aliases
@@ -407,6 +407,35 @@ namespace MuffinDev.MultipleEditors.Utilities
             );
             _CreatedAsset = result.AssetObject ? result.AssetObject as TAssetType : null;
             return result;
+        }
+
+        /// <summary>
+        /// Finds all assets of the given type in the project.
+        /// </summary>
+        /// <typeparam name="T">The type of the asset you want to find.</typeparam>
+        /// <returns>Returns the cast assets you want to find.</returns>
+        public static T[] FindAllAssetsOfType<T>()
+            where T : Object
+        {
+            Object[] assets = FindAllAssetsOfType(typeof(T));
+            T[] castAssets = new T[assets.Length];
+            for (int i = 0; i < assets.Length; i++)
+                castAssets[i] = assets[i] as T;
+            return castAssets;
+        }
+
+        /// <summary>
+        /// Finds all assets of the given type in the project.
+        /// </summary>
+        /// <param name="_Type">The type of the asset you want to find.</param>
+        /// <returns>Returns the cast assets you want to find.</returns>
+        public static Object[] FindAllAssetsOfType(Type _Type)
+        {
+            string[] guids = AssetDatabase.FindAssets($"t:{_Type.Name}");
+            Object[] assets = new Object[guids.Length];
+            for (int i = 0; i < guids.Length; i++)
+                assets[i] = AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guids[i]), _Type);
+            return assets;
         }
 
         #endregion

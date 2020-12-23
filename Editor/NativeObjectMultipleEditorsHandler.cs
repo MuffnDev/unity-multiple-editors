@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEditor;
 
-using MuffinDev.Core.EditorOnly;
+using MuffinDev.MultipleEditors.Utilities.EditorOnly;
 
 using Object = UnityEngine.Object;
 

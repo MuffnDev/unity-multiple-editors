@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-using MuffinDev.Core;
+using MuffinDev.MultipleEditors.Utilities;
 
 namespace MuffinDev.MultipleEditors
 {
