@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Reflection;
-
 using UnityEngine;
 using UnityEditor;
 
-using MuffinDev.MultipleEditors.Utilities;
+using MuffinDev.Core.EditorOnly;
 
 using Object = UnityEngine.Object;
 

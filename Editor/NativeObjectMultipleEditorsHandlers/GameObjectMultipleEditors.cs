@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 
-using MuffinDev.MultipleEditors.Utilities;
+using MuffinDev.Core.EditorOnly;
 
 using Object = UnityEngine.Object;
 
@@ -91,16 +88,12 @@ namespace MuffinDev.MultipleEditors
         /// </summary>
         public override Texture2D RenderStaticPreview(string _AssetPath, Object[] _SubAssets, int _Width, int _Height)
         {
-            if (!ReflectionUtility.CallMethod<bool>("HasStaticPreview", NativeEditor) || !ShaderUtil.hardwareSupportsRectRenderTexture)
+            if (NativeEditor == null)
                 return null;
-            object previewData = ReflectionUtility.CallMethod<object>("GetPreviewData", NativeEditor);
-            PreviewRenderUtility renderUtility = (PreviewRenderUtility)ReflectionUtility.GetNestedType("PreviewData", NativeEditor)
-                .GetField("renderUtility").GetValue(previewData);
-            renderUtility.BeginStaticPreview(new Rect(0.0f, 0.0f, (float) _Width, (float) _Height));
-            ReflectionUtility.CallMethod("DoRenderPreview", NativeEditor);
-            return renderUtility.EndStaticPreview();
+
+            return ReflectionUtility.CallMethod<Texture2D>("RenderStaticPreview", NativeEditor, new object[] { _AssetPath, _SubAssets, _Width, _Height });
         }
-        
+
         /// <summary>
         /// Draws the preview of the GameObject.
         /// NOTE: This override is necessary in order to load the asset preview correctly when displayed in the
@@ -109,57 +102,12 @@ namespace MuffinDev.MultipleEditors
         /// </summary>
         public override void OnPreviewGUI(Rect _Rect, GUIStyle _Background)
         {
-            if (!ShaderUtil.hardwareSupportsRectRenderTexture)
-            {
-                if (Event.current.type != UnityEngine.EventType.Repaint)
-                    return;
-                EditorGUI.DropShadowLabel(new Rect(_Rect.x, _Rect.y, _Rect.width, 40f), "Preview requires\nrender texture support");
-            }
-            else
-            {
-                Vector2 vector2 = (Vector2)Type.GetType("PreviewGUI, UnityEditor")
-                    .GetMethod("Drag2D", ReflectionUtility.STATIC)
-                    .Invoke(null, new object[] { ReflectionUtility.GetFieldValue("m_PreviewDir", NativeEditor), _Rect });
-                
-                if (vector2 != ReflectionUtility.GetFieldValue<Vector2>("m_PreviewDir", NativeEditor))
-                {
-                    ReflectionUtility.CallMethod("ClearPreviewCache", NativeEditor);
-                    ReflectionUtility.SetFieldValue("m_PreviewDir", vector2, NativeEditor);
-                }
+            if (NativeEditor == null)
+                return;
 
-                if (Event.current.type != UnityEngine.EventType.Repaint)
-                    return;
-
-                if (ReflectionUtility.GetFieldValue<Rect>("m_PreviewRect", NativeEditor) != _Rect)
-                {
-                    ReflectionUtility.CallMethod("ClearPreviewCache", NativeEditor);
-                    ReflectionUtility.SetFieldValue("m_PreviewRect", _Rect, NativeEditor);
-                }
-                
-                object previewData = ReflectionUtility.CallMethod<object>("GetPreviewData", NativeEditor);
-                PreviewRenderUtility renderUtility = (PreviewRenderUtility) ReflectionUtility.GetNestedType("PreviewData", NativeEditor).GetField("renderUtility").GetValue(previewData);
-
-                Dictionary<int, Texture> previewCache = ReflectionUtility.GetFieldValue<Dictionary<int, Texture>>("m_PreviewCache", NativeEditor);
-                int referenceTargetIndex = ReflectionUtility.GetPropertyValue<int>("referenceTargetIndex", NativeEditor);
-                if (previewCache.TryGetValue(referenceTargetIndex, out Texture texture))
-                {
-                    typeof(PreviewRenderUtility).GetMethod("DrawPreview", ReflectionUtility.STATIC)
-                        .Invoke(null, new object[] { _Rect, texture });
-                }
-                else
-                {
-                    renderUtility.BeginPreview(_Rect, _Background);
-                    ReflectionUtility.CallMethod("DoRenderPreview", NativeEditor);
-                    renderUtility.EndAndDrawPreview(_Rect);
-                    RenderTexture dest = (RenderTexture) (renderUtility.GetType().GetProperty("renderTexture", ReflectionUtility.INSTANCE).GetValue(renderUtility));
-                    RenderTexture active = RenderTexture.active;
-                    Graphics.Blit((RenderTexture) (renderUtility.GetType().GetProperty("renderTexture", ReflectionUtility.INSTANCE).GetValue(renderUtility)), dest);
-                    RenderTexture.active = active;
-                    previewCache.Add(referenceTargetIndex, dest);
-                }
-            }
+            ReflectionUtility.CallMethod("OnPreviewGUI", NativeEditor, new object[] { _Rect, _Background });
         }
-        
+
     }
 
 }

@@ -5,7 +5,8 @@ using UnityEditor;
 using UnityEditor.AnimatedValues;
 using UnityEditorInternal;
 
-using MuffinDev.MultipleEditors.Utilities;
+using MuffinDev.Core;
+using MuffinDev.Core.EditorOnly;
 
 namespace MuffinDev.MultipleEditors
 {
